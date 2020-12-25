@@ -1,0 +1,22 @@
+#!/bin/bash
+echo "This is a script that calculates the decision of square equation. Enter Coefficients:"
+read -r -p "a: " a
+read -r -p "b: " b
+read -r -p "c: " c
+discriminant=$(bc <<< "scale=4; $b*$b-4*$a*$c")
+if [ "$discriminant" -gt 0 ]
+then
+discriminantRoot=$(bc <<< "scale=4; sqrt($discriminant)")
+root1=$(bc <<< "scale=4; (-$b+$discriminantRoot)/(2*$a)")
+root2=$(bc <<< "scale=4; (-$b-$discriminantRoot)/(2*$a)")
+echo "root1 = $root1 and root2 = $root2 "
+elif [ "$discriminant" -eq 0 ]
+then
+root1=$(bc <<< "scale=4; -$b/(2*$a)")
+echo "root = $root1"
+else
+discriminantRoot=$(bc <<< "scale=4; sqrt(-$discriminant)")
+realPart=$(bc <<< "scale=4; -$b/(2*$a)")
+imagPart=$(bc <<< "scale=4; $discriminantRoot/(2*$a)")
+echo "root1 = $realPart + $imagPart*i and root2 = $realPart - $imagPart*i"
+fi

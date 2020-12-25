@@ -1,0 +1,5 @@
+#!/bin/bash
+source ./helpers/script5
+showwhoami
+showpwd
+testfunc

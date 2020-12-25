@@ -1,0 +1,19 @@
+#!/bin/bash
+function testfunc {
+echo "This is test function"
+}
+function createtestdir {
+mkdir test
+}
+function removetestdir {
+rm -r test
+}
+function showfiles {
+ls
+}
+function showpwd {
+pwd
+}
+function showwhoami {
+whoami
+}
